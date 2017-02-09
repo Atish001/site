@@ -1,0 +1,44 @@
+<div class="jumbotron text-center" ng-app=".">
+    <h1>Theater Checking</h1>
+
+    <p>{{ tagline }}</p>
+
+    <div>
+        <center>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Theater</th>
+                        <th> cityName</th>
+                        <th> movieName</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+
+                        <td><input ng-model="theater.theaterName" /></td>
+                        <td><select ng-model="theater.city">
+                            <option ng-repeat ="city in cityList" ng-value="city.cityName">{{city.cityName}}</option>
+                    </select></td>
+                    <td><select ng-model = "theater.movi">
+                        <option ng-repeat ="movi in moviList" ng-value="movi.moviTitle">{{movi.moviTitle}}</option>
+                        </select></td>
+
+
+                        <td><button ng-click="addTheater(theater)" class="btn btn-primary">Add </button></td>
+
+                        <td><button ng-click="updateTheater(theater)" class="btn btn-primary">Update</button></td>
+
+                    </tr>
+                    <tr ng-repeat=" theater in theaterList">
+                        <td>{{theater.theaterName}}</td>    
+                        <td>{{city. cityName}}</td>
+                        <td>{{movi.movieTitle}}</td>
+                        <td><button ng-click="removeTheater(theater)" class="btn btn-danger">Remove</button></td>
+                        <td><button ng-click="editTheater(theater)" class="btn btn-primary">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </div>
